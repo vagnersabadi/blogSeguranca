@@ -23,34 +23,35 @@ import br.ufsm.csi.seguranca.model.Usuario;
 @Repository
 public class UsuarioDAO {
 
-	@Autowired
-	private SessionFactory sessionFactory;
-	
-	@Transactional
-	public void inserirUsuario(Usuario usuario)throws Exception{		
-		sessionFactory.getCurrentSession().save(usuario);
-	}
-	
-	@Transactional
-	public Usuario login(String login)throws Exception{
-		Session session = sessionFactory.getCurrentSession();
-		Criteria crit = session.createCriteria(Usuario.class);
-		crit.add(Restrictions.eq("loginUsuario", login));
-		return (Usuario) crit.uniqueResult();
-	}
-	
-		
-	@Transactional
-	public Collection<Usuario> getUsuarios() throws SQLException{
-		return sessionFactory.getCurrentSession().createCriteria(Usuario.class).list();
-	}
-	
-	@Transactional
-	public Usuario buscarUsuarioPeloId(Long id) throws Exception{
-		return (Usuario) sessionFactory.getCurrentSession().get(Usuario.class, id);
-	}
+    @Autowired
+    private SessionFactory sessionFactory;
 
-	
-	
+    //inserir novo usuario
+    @Transactional
+    public void inserirUsuario(Usuario usuario) throws Exception {
+        sessionFactory.getCurrentSession().save(usuario);
+    }
+
+    //faz login recebendo nome
+    @Transactional
+    public Usuario login(String login) throws Exception {
+        Session session = sessionFactory.getCurrentSession();
+        Criteria crit = session.createCriteria(Usuario.class);
+        crit.add(Restrictions.eq("loginUsuario", login));
+        return (Usuario) crit.uniqueResult();
+    }
+
+    //busca todos usuarios
+    @Transactional
+    public Collection<Usuario> getUsuarios() throws SQLException {
+        return sessionFactory.getCurrentSession().createCriteria(Usuario.class).list();
+    }
+
+    //busca usuario pelo id
+    @Transactional
+    public Usuario buscarUsuarioPeloId(Long id) throws Exception {
+        return (Usuario) sessionFactory.getCurrentSession().get(Usuario.class, id);
+    }
+
 
 }

@@ -2,6 +2,7 @@ package br.ufsm.csi.seguranca.dao;
 
 import java.sql.SQLException;
 import java.util.Collection;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,19 +17,21 @@ import br.ufsm.csi.seguranca.model.Comentario;;
 
 @Repository
 public class ComentarioDAO {
+//Hibernate bloqueia injeções usando PreparedStatement do Criteria
 
-	
-	@Autowired
-	private SessionFactory sessionFactory;
-	
-	@Transactional
-	public Collection<Comentario> getComentariosPost(Post post) throws SQLException{
-		return sessionFactory.getCurrentSession().createCriteria(Comentario.class).add(Restrictions.eq("post", post)).list();
-	}
-	
-	@Transactional
-	public void inserirComentario(Comentario comentario)throws Exception{		
-		sessionFactory.getCurrentSession().save(comentario);
-	}
-	
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    //buscar comentarios atraves do post selecionado(id)
+    @Transactional
+    public Collection<Comentario> getComentariosPost(Post post) throws SQLException {
+        return sessionFactory.getCurrentSession().createCriteria(Comentario.class).add(Restrictions.eq("post", post)).list();
+    }
+
+    //inserir comenterio banco
+    @Transactional
+    public void inserirComentario(Comentario comentario) throws Exception {
+        sessionFactory.getCurrentSession().save(comentario);
+    }
+
 }
