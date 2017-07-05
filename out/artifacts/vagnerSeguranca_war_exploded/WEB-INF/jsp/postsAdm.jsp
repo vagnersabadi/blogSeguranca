@@ -30,9 +30,9 @@
                         <div class="col s12">
                             <div class="card blue darken-1 z-depth-5">
                                 <div class="card-content white-text">
-                                    <strong><span class="card-title">${p.tituloPost}</span></strong>
-                                    <p>${p.textoPost}</p>
-                                    <p><strong>Data:${p.dataPost}</strong></p>
+                                    <strong><span class="card-title"><c:out value="${p.tituloPost}" escapeXml="true"/></span></strong>
+                                    <p><c:out value="${p.textoPost}" escapeXml="true"/></p>
+                                    <p><strong>Data: <c:out value="${p.dataPost}" escapeXml="true"/></strong></p>
                                 </div>
                                 <div class="card-action white-text">
                                     <div class="row">

@@ -73,13 +73,13 @@
         <div class="carousel">
         <c:forEach items="${posts}" var="post">
                 <div class=" carousel-item col s12 m8 l6 blue ">
-                    <h5 class="header">${post.tituloPost}</h5>
+                    <h5 class="header"><c:out value="${post.tituloPost}" escapeXml="true"/></h5>
                     <div class="card horizontal blue lighten-3">
                         <div class="card-stacked ">
                             <div class="card-content ">
-                                <p>${fn:substring(post.textoPost, 0,199)} ...</p>
-                                <p>Data: ${post.dataPost}</p>
-                                <p>Autor: ${post.usuario.nomeUsuario}" </p>
+                                <p><c:out value="${fn:substring(post.textoPost, 0,199)}" escapeXml="true"/> ...</p>
+                                <p>Data: <c:out value="${post.dataPost}" escapeXml="true"/></p>
+                                <p>Autor: <c:out value="${post.usuario.nomeUsuario}" escapeXml="true"/></p>
                             </div>
                             <div class="card-action">
                                 <!--<a href="verPost.html?id=${post.idPost}">Ver Mais</a>-->

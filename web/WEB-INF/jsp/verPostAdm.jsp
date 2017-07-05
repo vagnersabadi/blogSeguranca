@@ -26,13 +26,13 @@
             <div class="col s12">
                 <div class="card blue darken-1 z-depth-5">
                     <div class="card-content white-text">
-                        <strong><span class="card-title">${post.tituloPost}</span></strong>
-                        <p>${post.textoPost}</p>
+                        <strong><span class="card-title"><c:out value="${post.tituloPost}" escapeXml="true"/></span></strong>
+                        <p><c:out value="${post.textoPost}" escapeXml="true"/></p>
                         <p>
-                            Data: <strong>${post.dataPost}</strong>
+                            Data: <strong><c:out value="${post.dataPost}" escapeXml="true"/></strong>
                         </p>
                         <p>
-                            Autor: <strong>${post.usuario.nomeUsuario}</strong>
+                            Autor: <strong><c:out value="${post.usuario.nomeUsuario}" escapeXml="true"/></strong>
                         </p>
                     </div>
 
@@ -45,7 +45,7 @@
                 <div class="col s12">
                     <div class="card  blue lighten-3 z-depth-3">
                         <div class="card-content white-text">
-                            <p>${cp.textoComentario}</p>
+                            <p><c:out value="${cp.textoComentario}" escapeXml="true"/></p>
                         </div>
                     </div>
                 </div>

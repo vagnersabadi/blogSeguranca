@@ -46,7 +46,7 @@
                 <div class="col s12">
                     <div class="card  blue lighten-3 z-depth-3">
                         <div class="card-content white-text">
-                            <p>${cp.textoComentario}</p>
+                            <p><c:out value="${cp.textoComentario}" escapeXml="true"/></p>
                         </div>
                     </div>
                 </div>

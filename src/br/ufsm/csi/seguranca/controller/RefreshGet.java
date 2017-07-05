@@ -50,7 +50,7 @@ public class RefreshGet {
         ModelAndView mv = new ModelAndView("login");
         if (u != null) {
 
-            if (u.getTipoUsuario() == 1) {
+            if (u.getTipoUsuario() == 1 ) {
                 mv = new ModelAndView("paginaAdm");
             } else if (u.getTipoUsuario() == 2) {
                 mv = new ModelAndView("paginaUser");

@@ -9,7 +9,6 @@
 		<!--Import materialize.css-->
 		<%@ include file="../../_css.jsp" %>
 		<%@ include file="../../_js.jsp" %>
-
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<!--Import jQuery before materialize.js-->
@@ -29,15 +28,16 @@
 			<strong><h5><i>Todos os Posts</i></h5></strong>
 			<div class="divider col s8 m6 l6"></div>
 		</div>
-		<br>		<div class="account-wall">
+		<br>
+		<div class="account-wall">
 			<c:forEach items="${posts}" var="p">
 				<div class="col s12">
 					<div class="card blue darken-1 z-depth-5">
 						<div class="card-content white-text">
-							<strong><span class="card-title">${p.tituloPost}</span></strong>
-							<p>${p.textoPost}</p>
-							<p><strong>Data: ${p.dataPost}</strong></p>
-							<p> <strong>Autor: ${p.usuario.nomeUsuario}</strong></p>
+							<strong><span class="card-title"><c:out value="${p.tituloPost}" escapeXml="true"/></span></strong>
+							<p><c:out value="${p.textoPost}" escapeXml="true"/></p>
+							<p><strong>Data: <c:out value="${p.dataPost}" escapeXml="true"/></strong></p>
+							<p> <strong>Autor: <c:out value="${p.usuario.nomeUsuario}" escapeXml="true"/></strong></p>
 						</div>
 						<div class="card-action white-text">
 							<div class="row">
@@ -50,7 +50,6 @@
 									</form>
 								</div>
 							</div>
-							<!--<a href="verPost.html?id=${p.idPost}">Comentar</a>-->
 						</div>
 					</div>
 				</div>

@@ -49,6 +49,8 @@ public class UsuarioController {
     public ModelAndView acesso_Sitema(String login, String senha, HttpServletRequest request, Map<String, Object> model)
             throws SQLException {
 
+        request.getSession().invalidate();
+
         // view LOGIN
         ModelAndView mv = new ModelAndView("login");
         //coleção de posts
@@ -104,7 +106,7 @@ public class UsuarioController {
                 else {
                     System.out.println("Erro login senha !=");
                     //ferifica se a contagem nao e mais que 5 tentativas para bloquear user
-                    if (u.getTentativas() > 5) {
+                    if (u.getTentativas() > 2) {
                         u.setAtivo(false);
                         mv.addObject("msg", "Erro ao realizar login!");
                     }
