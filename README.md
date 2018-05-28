@@ -1,5 +1,5 @@
 # Blog de Segurança
  ## Tecnologias usadas
- > Hibernate
- > SpringMVC
- > PostgreSQL
+ - Hibernate
+ - SpringMVC
+ - PostgreSQL
